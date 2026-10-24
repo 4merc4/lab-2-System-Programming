@@ -1,0 +1,21 @@
+gcc -O0 -S -masm=intel -o asm_O0.s matmul.c
+gcc -O3 -march=native -S -masm=intel -o asm_O3.s matmul.c
+AVX/FMA інструкції в O3:
+	vmulpd	xmm0, xmm0, XMMWORD PTR -16[r14]
+	vfmadd231sd	xmm1, xmm3, QWORD PTR 0[rbp+rax*8]
+	vbroadcastsd	ymm1, QWORD PTR [rdi]
+	vbroadcastsd	ymm2, xmm3
+	vmovupd	ymm0, YMMWORD PTR [r10+rcx]
+	vfmadd213pd	ymm0, ymm2, YMMWORD PTR [rax+rcx]
+	vfmadd231pd	ymm0, ymm1, YMMWORD PTR [rsi+rcx]
+	vmovupd	YMMWORD PTR [rax+rcx], ymm0
+	vfmadd132pd	xmm1, xmm4, XMMWORD PTR [rbx+rsi*8]
+	vfmadd132pd	xmm0, xmm1, XMMWORD PTR [rbx+r14*8]
+	vfmadd132sd	xmm3, xmm5, QWORD PTR [rbx+rcx*8]
+	vfmadd231sd	xmm3, xmm6, QWORD PTR [rbx+r10*8]
+	vbroadcastsd	ymm1, xmm2
+	vmovupd	ymm0, YMMWORD PTR [rdi+rsi]
+	vfmadd213pd	ymm0, ymm1, YMMWORD PTR [rcx+rsi]
+	vmovupd	YMMWORD PTR [rcx+rsi], ymm0
+	vfmadd132pd	xmm0, xmm7, XMMWORD PTR [rbx+rdi*8]
+	vfmadd132sd	xmm2, xmm7, QWORD PTR [rbx+rsi*8]

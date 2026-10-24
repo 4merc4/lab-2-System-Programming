@@ -1,0 +1,60 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 17K of event 'cpu/cycles/P'
+# Event count (approx.): 18945649497
+#
+# Children      Self  Command    Shared Object         Symbol                
+# ........  ........  .........  ....................  ......................
+#
+    99.99%     0.00%  matmul_O0  matmul_O0             [.] _start
+            |
+            ---_start
+               __libc_start_main
+               0x7550bb02a601
+               main
+               |          
+                --99.51%--matmul_naive
+
+    99.99%     0.00%  matmul_O0  libc.so.6             [.] __libc_start_main
+            |
+            ---__libc_start_main
+               0x7550bb02a601
+               main
+               |          
+                --99.51%--matmul_naive
+
+    99.99%     0.00%  matmul_O0  libc.so.6             [.] 0x00007550bb02a601
+            |
+            ---0x7550bb02a601
+               main
+               |          
+                --99.51%--matmul_naive
+
+    99.99%     0.23%  matmul_O0  matmul_O0             [.] main
+            |          
+             --99.76%--main
+                       |          
+                        --99.51%--matmul_naive
+
+    99.51%    99.15%  matmul_O0  matmul_O0             [.] matmul_naive
+            |          
+             --99.15%--_start
+                       __libc_start_main
+                       0x7550bb02a601
+                       main
+                       matmul_naive
+
+     0.27%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b00134b
+     0.27%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9c23630d
+     0.23%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b2926a4
+     0.23%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b590ba5
+     0.22%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b5909a2
+     0.13%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b00187f
+     0.12%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9c235a7e
+     0.12%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b271cc6
+     0.12%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9beefc84
+     0.11%     0.00%  matmul_O0  [unknown]             [.] 0xffffffff9b399fc1
+     0.10%     0.04%  matmul_O0  libc.so.6             [.] rand

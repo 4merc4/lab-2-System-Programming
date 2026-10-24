@@ -1,0 +1,8 @@
+FlameGraph/
+*.data
+*.perf
+*.folded
+matmul_O0
+matmul_O3
+asm_*.s
+*.data.old

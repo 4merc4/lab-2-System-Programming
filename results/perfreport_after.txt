@@ -1,0 +1,60 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 557  of event 'cpu/cycles/P'
+# Event count (approx.): 538437660
+#
+# Children      Self  Command    Shared Object         Symbol                
+# ........  ........  .........  ....................  ......................
+#
+    99.76%     0.00%  matmul_O3  matmul_O3             [.] _start
+            |
+            ---_start
+               __libc_start_main
+               0x740185e2a601
+               main
+               |          
+               |--81.65%--matmul_opt
+               |          
+               |--4.25%--0xffffffff9b00134b
+               |          |          
+               |           --4.11%--0xffffffff9c23630d
+               |                     |          
+               |                      --3.80%--0xffffffff9b2926a4
+               |                                |          
+               |                                 --3.66%--0xffffffff9b590ba5
+               |                                           |          
+               |                                            --3.17%--0xffffffff9b5909a2
+               |                                                      |          
+               |                                                       --1.08%--0xffffffff9b58e1d3
+               |                                                                 0xffffffff9b5f8c57
+               |                                                                 |          
+               |                                                                  --0.93%--0xffffffff9b5f61ce
+               |                                                                            |          
+               |                                                                             --0.75%--0xffffffff9b5c2495
+               |          
+               |--3.58%--rand
+               |          |          
+               |          |--1.46%--random_r
+               |          |          
+               |           --1.19%--random
+               |          
+               |--2.44%--0x740185f98489
+               |          |          
+               |           --2.23%--0xffffffff9b00134b
+               |                     |          
+               |                      --2.12%--0xffffffff9c23630d
+               |                                |          
+               |                                 --1.91%--0xffffffff9b2926a4
+               |                                           |          
+               |                                            --1.77%--0xffffffff9b590ba5
+               |                                                      0xffffffff9b5909a2
+               |                                                      |          
+               |                                                       --0.73%--0xffffffff9b58e1d3
+               |                                                                 0xffffffff9b5f8c57
+               |                                                                 |          
+               |                                                                  --0.62%--0xffffffff9b5f61ce
+               |                                                                            0xffffffff9b5c2495
+               |                                                                            0xffffffff9c22b1db

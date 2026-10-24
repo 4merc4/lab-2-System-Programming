@@ -1,0 +1,60 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 18K of event 'cpu/cycles/P'
+# Event count (approx.): 19353922610
+#
+# Children      Self  Command    Shared Object         Symbol                
+# ........  ........  .........  ....................  ......................
+#
+    99.99%     0.00%  matmul_O3  matmul_O3             [.] _start
+            |
+            ---_start
+               __libc_start_main
+               0x7a0dd722a601
+               |          
+                --99.99%--main
+                          |          
+                           --99.57%--matmul_naive
+
+    99.99%     0.00%  matmul_O3  libc.so.6             [.] __libc_start_main
+            |
+            ---__libc_start_main
+               0x7a0dd722a601
+               |          
+                --99.99%--main
+                          |          
+                           --99.57%--matmul_naive
+
+    99.99%     0.00%  matmul_O3  libc.so.6             [.] 0x00007a0dd722a601
+            |
+            ---0x7a0dd722a601
+               |          
+                --99.99%--main
+                          |          
+                           --99.57%--matmul_naive
+
+    99.99%     0.15%  matmul_O3  matmul_O3             [.] main
+            |          
+             --99.84%--main
+                       |          
+                        --99.57%--matmul_naive
+
+    99.57%    99.12%  matmul_O3  matmul_O3             [.] matmul_naive
+            |          
+             --99.12%--_start
+                       __libc_start_main
+                       0x7a0dd722a601
+                       main
+                       matmul_naive
+
+     0.29%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b00134b
+     0.29%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9c23630d
+     0.24%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b2926a4
+     0.23%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b00187f
+     0.22%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b590ba5
+     0.21%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9c235a7e
+     0.21%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b5909a2
+     0.21%     0.00%  matmul_O3  [unknown]             [.] 0xffffffff9b271cc6
