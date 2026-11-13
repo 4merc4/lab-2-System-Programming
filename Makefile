@@ -1,4 +1,3 @@
-# -fno-omit-frame-pointer потрібен для коректних стеків у perf/FlameGraph
 CFLAGS_COMMON = -g -fno-omit-frame-pointer -Wall
 
 all: matmul_O0 matmul_O3
